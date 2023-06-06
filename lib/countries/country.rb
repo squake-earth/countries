@@ -96,7 +96,7 @@ module ISO3166
       data['translations'][locale.to_s.downcase]
     end
 
-    # @return [String] the “common name” of this Country in English.
+    # @return [String] the "common name" of this Country in English.
     def common_name
       ISO3166.configuration.locales = ISO3166.configuration.locales.append(:en).uniq
       translation('en')
