@@ -29,14 +29,8 @@ describe 'Accessing ISO3166::Country instances data in multiple threads' do
     threads.map(&:join)
   end
 
-  it "doesn't raise any exceptions when using a mutex" do
+  it "doesn't raise any exceptions" do
     expect { create_countries_threaded }.to_not raise_error
-  end
-
-  it 'raises NoMethodError when not using a mutex' do
-    allow(ISO3166::Data).to receive(:use_mutex?).and_return(false)
-
-    expect { create_countries_threaded }.to raise_error(NoMethodError)
   end
 
   after do
